@@ -8,13 +8,24 @@ let time = 0;
 let isRunning = false;
 let timerId = false;
 
+function init() {
+    startStop.style.backgroundColor = "#b6d7a8";
+	startStop.style.color = "green";
+    
+    lapReset.style.backgroundColor = "#b3d6ce";
+}
+
+init();
+
 startStop.addEventListener("click", function () {
     if(isRunning == false){
         isRunning = true;
         startStop.innerHTML = "Stop";
+        startStop.style.backgroundColor = "#f4cccc";
+        startStop.style.color = "red";
         timerId = setInterval(function () {
             time++;
-            let secs = parseInt(time % 60);
+            let secs = time % 60;
             let mins = parseInt(time / 60);
             let hrs = parseInt(mins / 60);
             sec.innerHTML = secs;
@@ -27,5 +38,7 @@ startStop.addEventListener("click", function () {
         isRunning = false;
         startStop.innerHTML = "Start";
         clearInterval(timerId);
+        startStop.style.backgroundColor = "#b6d7a8";
+        startStop.style.color = "green";
     }
  });
