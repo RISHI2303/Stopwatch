@@ -2,7 +2,6 @@ body {
     background-color: #000000;
     color: white;
     margin: 0px;
-    resize: none;
 }
 
 .container {
@@ -38,4 +37,21 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     cursor: pointer;
+}
+
+.lap-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    width: 600px;
+    overflow: auto;
+}
+
+#timeDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
