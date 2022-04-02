@@ -53,3 +53,9 @@ body {
     justify-content: space-between;
     padding: 20px;
 }
+
+.wrapperlap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
