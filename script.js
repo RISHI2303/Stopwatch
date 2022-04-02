@@ -4,7 +4,7 @@ let sec = document.getElementById("sec");
 let startStop = document.getElementById("start-stop");
 let lapReset = document.getElementById("lap-reset");
 let lapList = document.querySelector(".lap-container");
-let lapCounter = 0;
+let lapCounter = 1;
 let time = 0;
 let isRunning = false;
 let timerId = false;
@@ -14,6 +14,7 @@ function init() {
 	startStop.style.color = "green";
     
     lapReset.style.backgroundColor = "#b3d6ce";
+    lapReset.style.color = "#2e3436";
     hrs.innerHTML = "00";
     min.innerHTML = "00";
     sec.innerHTML = "00";
@@ -21,7 +22,7 @@ function init() {
     startStop.innerHTML = "Start";
     time = 0;
     isRunning = false;
-    lapCounter = 0;
+    lapCounter = 1;
 }
 
 init();
@@ -68,18 +69,19 @@ startStop.addEventListener("click", function () {
 
 function createLap() { 
     let div = document.createElement("div");
-    div.setAttribute("id", "timeDiv");
+    div.setAttribute("class", "timeDiv");
     let divider = document.createElement("hr");
     let lapNum = document.createElement("span");
     lapNum.innerHTML = "Lap " + lapCounter;
     lapCounter++;
+    lapList.scrollTop = lapList.scrollHeight;
 
     let timeStamp = document.createElement("span");
     timeStamp.innerHTML = `${hrs.innerHTML} : ${min.innerHTML} : ${sec.innerHTML}`;
     div.appendChild(lapNum);
     div.appendChild(timeStamp);
-    lapList.appendChild(divider);
     lapList.appendChild(div);
+    lapList.appendChild(divider);
 }
  
 lapReset.addEventListener("click", function () { 
